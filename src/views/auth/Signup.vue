@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CompSignup from "../components/CompSignup.vue";
+import CompSignup from "@/components/CompSignup.vue";
 import { useRouter } from "vue-router";
 
 export default {

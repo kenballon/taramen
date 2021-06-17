@@ -1,13 +1,15 @@
 <template>
-  <HeroSection />  
+  <HeroSection /> 
+  <BestSellerList /> 
 </template>
 
 <script>
 import HeroSection from "./HeroSection.vue";
+import BestSellerList from './BestSellerList.vue'
 
 export default {
   name: "LandingPage",
-  components: { HeroSection },
+  components: { HeroSection, BestSellerList },
 };
 </script>
 

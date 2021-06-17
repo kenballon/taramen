@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="container">
-      <div class="nav-wrapper d-flex align-center justify-between">
+      <div class="nav-wrapper d-flex align-center">
         <div class="branding">
           <router-link :to="{ name: 'Home' }">
             <img
@@ -12,7 +12,7 @@
           </router-link>
         </div>
 
-        <div class="menu-primary-navigation-container">
+        <div class="menu-primary-navigation-container d-flex gap-9">
           <ul class="ul-nav-links-wrapper d-flex align-center">
             <li>
               <router-link class="nav-links_text" :to="{ name: 'Home' }"
@@ -20,89 +20,36 @@
               >
             </li>
             <li class="sub-menu">
-              <router-link :to="{ name: 'Menus' }" class="nav-links_text"
+              <router-link :to="{ name: 'MenuCat' }" class="nav-links_text"
                 >Our Menus</router-link
               >
-              <div class="submenu-cat">
-                <div class="d-grid grid-col-auto-fit-250 gap-3 container">
-                  <div class="menu-cat">
-                    <router-link to="#" class="menu-cat_cards">
-                      <img
-                        src="../assets/images/tempura.jpg"
-                        alt="ramen category"
-                        width="250"
-                      />
-                      <h3>Starter</h3>
-                    </router-link>
-                  </div>
-                  <div class="menu-cat">
-                    <router-link to="#" class="menu-cat_cards">
-                      <img
-                        src="../assets/images/ramen.jpg"
-                        alt="ramen category"
-                        width="250"
-                      />
-                      <h3>Ramen</h3>
-                    </router-link>
-                  </div>
-                  <div class="menu-cat">
-                    <router-link to="#" class="menu-cat_cards">
-                      <img
-                        src="../assets/images/calimaki.jpg"
-                        alt="ramen category"
-                        width="250"
-                      />
-                      <h3>Maki & Sushi Roll</h3>
-                    </router-link>
-                  </div>
-                  <div class="menu-cat">
-                    <router-link to="#" class="menu-cat_cards">
-                      <img
-                        src="../assets/images/chickenwings.jpg"
-                        alt="ramen category"
-                        width="250"
-                      />
-                      <h3>Chicken Wings</h3>
-                    </router-link>
-                  </div>
-                  <div class="menu-cat">
-                    <router-link to="#" class="menu-cat_cards">
-                      <img
-                        src="../assets/images/tempura2.jpg"
-                        alt="ramen category"
-                        width="250"
-                      />
-                      <h3>Alacarte</h3>
-                    </router-link>
-                  </div>
-                  <div class="menu-cat">
-                    <router-link to="#" class="menu-cat_cards">
-                      <img
-                        src="../assets/images/milktea.jpg"
-                        alt="ramen category"
-                        width="250"
-                      />
-                      <h3>Drinks</h3>
-                    </router-link>
-                  </div>
-                </div>
-              </div>
+              <!-- insert Menu category ui component  -->
+              <MenuCatCards />
             </li>
             <li>
               <router-link class="nav-links_text" :to="{ name: 'About' }"
                 >About Us</router-link
               >
             </li>
+            <li v-if="user">
+              <router-link class="nav-links_text" :to="{ name: 'Admin' }"
+                >Post new dish</router-link
+              >
+            </li>
           </ul>
-        </div>
 
-        <div v-if="user">
-          <div>User: {{ user.displayName }}</div>
-          <div>email: {{ user.email }}</div>
-        </div>
-
-        <div v-if="user">
-          <input type="button" value="Logout" @click="handleLogout" />
+          <div class="login-user-wrapper d-flex align-center gap-3" v-if="user">
+            <div class="d-flex align-center gap-1">
+              <h4>{{ user.displayName }}</h4>
+              <img src="../assets/images/menu/login.svg" width="20" alt="" />
+            </div>
+            <input
+              type="button"
+              value="Logout"
+              @click="handleLogout"
+              class="logout-btn"
+            />
+          </div>
         </div>
       </div>
     </nav>
@@ -113,9 +60,11 @@
 import userLogout from "../composables/userLogout";
 import getUser from "../composables/getUser";
 import { useRouter } from "vue-router";
+import MenuCatCards from "../components/MenuCatCards.vue";
 
 export default {
   name: "Navigation",
+  components: { MenuCatCards },
   setup() {
     const router = useRouter();
     const { logout, error } = userLogout();
@@ -179,6 +128,7 @@ header {
           }
         }
         .submenu-cat {
+          background: #ffe4e5;
           position: absolute;
           top: 87px;
           right: 0;
@@ -187,51 +137,17 @@ header {
           overflow: hidden;
           justify-content: center;
           flex-flow: wrap;
-          background: #ffe4e5;
-          border-top: 1px solid #ff0000;
           z-index: 3;
-          visibility: hidden;
           opacity: 1;
-          transition: visibilty 0.5s ease;
-
-          .menu-cat {
-            cursor: pointer;
-            background-color: #fff;
-            box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-            .menu-cat_cards {
-              text-decoration: none;
-              color: #290000;
-              transition: color 0.5s ease;
-              img {
-                width: 100%;
-                height: 204px;
-                object-fit: cover;
-                object-position: center;
-              }
-              h3 {
-                font-family: "Inter";
-                font-size: 1.25rem;
-                font-weight: 600;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                padding: 15px;
-                opacity: 0.8;          
-              }
-              &:hover {
-                color: #ff0000;
-                img{
-                  opacity: 0.7;
-                }
-              }
-            }
-          }
+          transition: display 0.5s ease;
+          display: none;          
         }
       }
 
       .sub-menu {
         &:hover {
           .submenu-cat {
-            visibility: visible;
+            display: block;
           }
         }
       }
@@ -239,8 +155,34 @@ header {
 
     .nav-wrapper {
       .menu-primary-navigation-container {
+        margin-left: auto;
         ul {
           list-style: none;
+        }
+
+        .login-user-wrapper {
+          h4 {
+            font-family: "Manrope";
+            font-size: 1.13rem;
+            font-weight: 500;
+            opacity: 0.8;
+            color: #290000;
+            transition: color 0.5s ease;
+            text-transform: uppercase;
+          }
+          .logout-btn {
+            background-color: transparent;
+            font-family: "Manrope";
+            font-size: 1.13rem;
+            font-weight: 500;
+            opacity: 0.8;
+            color: #290000;
+            transition: color 0.5s ease;
+
+            &:hover {
+              color: #ff0000;
+            }
+          }
         }
       }
     }

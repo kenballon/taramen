@@ -26,6 +26,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+h1,h2,h3,h4,h5,h6,p,span{
+    color: #290000;
+}
 
 .container {
     width: 100%;
@@ -42,23 +45,23 @@ body {
     margin-right: auto;
 }
 
-.height-100{
+.height-100 {
     height: 100%;
 }
 
-.pb-1{
+.pb-1 {
     padding-bottom: 1rem;
 }
 
-.pb-2{
+.pb-2 {
     padding-bottom: 1.5rem;
 }
 
-.pb-3{
+.pb-3 {
     padding-bottom: 2rem;
 }
 
-.mb-1{
+.mb-1 {
     margin-bottom: 1rem;
 }
 
@@ -67,35 +70,39 @@ body {
     display: grid;
 }
 
-.grid-col-auto-fit-250{
+.grid-col-auto-fit-250 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-col-auto-fit-350 {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .grid-col-2 {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.grid-col-3{
+.grid-col-3 {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.col-span-2{
+.col-span-2 {
     grid-column: span 2;
 }
 
-.grid-row-2{
+.grid-row-2 {
     grid-template-rows: repeat(2, 1fr);
 }
 
-.grid-row-3{
+.grid-row-3 {
     grid-template-rows: repeat(3, 1fr);
 }
 
-.grid-row-4{
+.grid-row-4 {
     grid-template-rows: repeat(4, 1fr);
 }
 
-.row-span-2{
+.row-span-2 {
     grid-row: span 2;
 }
 
@@ -193,38 +200,38 @@ body {
     }
 }
 
-input[type="button"]{
+input[type="button"] {
     cursor: pointer;
     padding: 15px;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     background-color: #fff;
     text-transform: uppercase;
-    margin-block:5px; 
-    text-decoration: none;   
+    margin-block: 5px;
+    text-decoration: none;
     letter-spacing: 1px;
-    font-family: 'Inter';
+    font-family: "Inter";
     border-radius: 3px;
     transition: all 0.5s ease;
     font-size: 1.25rem;
-    &:hover{
+    &:hover {
         opacity: 0.8;
     }
 }
 
-.btn{
+.btn {
     cursor: pointer;
     padding: 15px;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     background-color: #fff;
     text-transform: uppercase;
-    margin-block:5px; 
-    text-decoration: none;   
+    margin-block: 5px;
+    text-decoration: none;
     letter-spacing: 1px;
-    font-family: 'Inter';
+    font-family: "Inter";
     border-radius: 3px;
     transition: all 0.5s ease;
     font-size: 1.25rem;
-    &:hover{
+    &:hover {
         opacity: 0.8;
     }
 }
@@ -255,12 +262,49 @@ input[type="button"]{
     font-weight: bold;
 }
 
-.absolute{
+.absolute {
     position: absolute;
-    z-index:10;
+    z-index: 10;
 }
 
-header{
-    border-bottom: 1px solid var(--prima-col-var-3);
+header {
+    border-bottom: 2px solid var(--primary-color);
     background-color: var(--prima-col-var-5);
+}
+
+.submenu-cat {
+    .submenu-cat_wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        .menu-cat {
+            cursor: pointer;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+            .menu-cat_cards {
+                text-decoration: none;
+                color: #290000;
+                transition: color 0.5s ease;
+                img {
+                    width: 100%;
+                    height: 204px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                h3 {
+                    font-family: "Inter";
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    padding: 15px;
+                    opacity: 0.8;
+                }
+                &:hover {
+                    color: #ff0000;
+                    img {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CompLogin from "../components/CompLogin.vue";
+import CompLogin from "@/components/CompLogin.vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -14,7 +14,7 @@ export default {
   setup() {
     const router = useRouter();
     const enterAdmin = () => {
-      router.push({ name: "Admin" });
+      router.push({ name: "Home" });
     };
 
     return { enterAdmin };

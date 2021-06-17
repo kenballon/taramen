@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/storage';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAWGWTzOEMXemqqH-4uoI-YUyKC5MzYdIY",
@@ -18,5 +19,6 @@ firebase.initializeApp(firebaseConfig);
 const taramenAuth = firebase.auth();
 const taramenFirestore = firebase.firestore();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+const taramenStorage = firebase.storage()
 
-export {taramenFirestore, timestamp, taramenAuth}
+export { taramenFirestore, timestamp, taramenAuth, taramenStorage }

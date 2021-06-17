@@ -49,7 +49,7 @@ import userSignup from "../composables/userSignup";
 export default {
   name: "CompSignup",
   setup(props, context) {
-    const { error, signup } = userSignup();
+    const { error, signup, isPending } = userSignup();
     const displayName = ref("");
     const emailAdd = ref("");
     const password = ref("");
@@ -65,7 +65,7 @@ export default {
       password.value = '';
     };   
 
-    return { displayName, emailAdd, password, handleSignUp, error };
+    return { displayName, emailAdd, password, handleSignUp, error, isPending };
   },
 };
 </script>

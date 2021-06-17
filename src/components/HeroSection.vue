@@ -9,9 +9,9 @@
        <div></div>
        <div></div>
        <div class="hero-text-wrapper row-span-2 col-span-2">
-         <h1 class="pb-1">Our Ramen Special</h1>
+         <h1 class="pb-1">Maki & Sushi Roll</h1>
          <h3 class="pb-3 mb-1">Partnered with our Ebi Tempura Alacarte only at Php 150.00</h3>
-         <router-link :to="{name: 'Menus'}" class="btn">See Menus</router-link>
+         <router-link :to="{name: 'MenuCat'}" class="btn">Our Menu</router-link>
        </div>
        <div></div>
        <div></div>
@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .hero-section{
   position: relative;
-  background-image: url('../assets/images/ramen.jpg');
+  background-image: url('../assets/images/calimaki.jpg');
   background-position: center;
   background-size: cover;
   height: 900px;
@@ -38,13 +38,15 @@ export default {
   h1{
     font-size: 72px;
     width: 19ch;
-    line-height: 1.2em;    
+    line-height: 1.2em;   
+    color:#fff; 
   }
   h3{
     width: 25ch;
     font-family: Inter;
     font-size: 2rem;
-    font-weight: 300;       
+    font-weight: 300;   
+    color:#fff;    
   }
   &::before{
     content: '';

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Signup from '../views/Signup.vue'
-import Login from '../views/Login.vue'
+import Signup from '../views/auth/Signup.vue'
+import Login from '../views/auth/Login.vue'
 import Admin from '../views/Admin.vue'
 import { taramenAuth } from '../firebase/config'
 
@@ -32,21 +32,21 @@ const routes = [
     component: Signup
   },
   {
-    path: '/bken-login',
+    path: '/taramen-login',
     name: 'Login',
     component: Login
   },
   {
-    path: '/tara-admin',
+    path: '/admin',
     name: 'Admin',
     component: Admin,
     beforeEnter: requireAuth
   }
   ,
   {
-    path: '/menus',
-    name: 'Menus',
-    component: () => import('../views/Menus.vue')
+    path: '/menus-cat',
+    name: 'MenuCat',
+    component: () => import('../views/MenuCategories.vue')
   }
 ]
 
