@@ -40,6 +40,11 @@
             <option value="Best Seller">Best Seller</option>
             <option value="">Featured Food</option>
             <option value="">Starter</option>
+            <option value="">Ramen</option>
+            <option value="">Maki & Sushi Roll</option>
+            <option value="">Chicken Wings</option>
+            <option value="">Alacarted</option>
+            <option value="">Drinks</option>
           </select>
         </div>
         <div class="form-group">

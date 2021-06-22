@@ -41,8 +41,7 @@ import getCollection from "../composables/getCollection";
 
 export default {
   name: "BestSellerList",
-  setup() {
-    const limit = ref(6);
+  setup() {    
     const { error, documents } = getCollection("taramen_db_col");
 
     return { error, documents };
